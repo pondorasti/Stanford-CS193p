@@ -1,10 +1,10 @@
 # Stanford CS193p Spring 2020
 
 # Curriculum 
-* [Lecture 1: Course Logistics and Introduction to SwiftUI](#Lecture-1-Course-Logistics-and-Introduction-to-SwiftUI)
-* [Lecture 2: MVVM and the Swift Type System]()
-* [Lecture 3: Reactive UI Protocols Layout]()
-* [Lecture 4: Grid enum Optionals]()
+* [Lecture 1: Course Logistics and Introduction to SwiftUI](#lecture-1-course-logistics-and-introduction-to-swiftui)
+* [Lecture 2: MVVM and the Swift Type System](#lecture-2-mvvm-and-the-swift-type-system)
+* [Lecture 3: Reactive UI Protocols Layout](#lecture-3-reactive-ui-protocols-layout)
+* [Lecture 4: Grid enum Optionals](#lecture-4-grid-enum-optionals)
 
 ## Lecture 1: Course Logistics and Introduction to SwiftUI
 
