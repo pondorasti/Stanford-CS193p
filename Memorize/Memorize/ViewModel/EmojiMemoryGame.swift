@@ -8,26 +8,40 @@
 
 import Foundation
 
-class EmojiMemoryGame {
-    private var game: MemoryGame<String> = createGame()
+class EmojiMemoryGame: ObservableObject {
 
-    // not that halloweny :]
-    static let hallowenEmojis = ["🕷", "🕸", "🎃", "🤯", "🥳", "👺", "👻", "☠️"]
+    // MARK: - Private Properties
 
-    static func createGame() -> MemoryGame<String> {
-        let emojis = hallowenEmojis.shuffled()
-        let numberOfPairsOfCards = Int.random(in: 2...5)
-
-        return MemoryGame(numberOfPairsOfCards: numberOfPairsOfCards) { (index) in
-            return emojis[index]
-        }
-    }
+    @Published private var game = MemoryGame<String>(numberOfPairsOfCards: 0) { _ in "" }
+    private var theme: Theme = .animals
 
 
     // MARK: - Public Properties
 
-    var cards: [MemoryGame<String>.Card] {
-        return game.cards
+    var name: String { theme.name }
+    var cards: [MemoryGame<String>.Card] { game.cards }
+    var score: Int { game.score }
+
+
+    // MARK: - Initializers
+
+    init() {
+        resetGame()
+    }
+
+
+    // MARK: - Public Methods
+
+    func resetGame() {
+        guard let theme = Theme.allThemes.randomElement() else {
+            fatalError("Array of themes is empty")
+        }
+
+        self.theme = theme
+        let numberOfPairsOfCards = Int.random(in: theme.rangeOfNumberOfPairs)
+        game = MemoryGame(numberOfPairsOfCards: numberOfPairsOfCards) { (index) in
+            return theme.emojis[index]
+        }
     }
 
 
